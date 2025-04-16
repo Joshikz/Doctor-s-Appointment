@@ -78,3 +78,5 @@ class DoctorAttachment(models.Model):
     def save(self, *args, **kwargs):
         self.name = self.image.name.split(".")[0].capitalize()
         super().save(*args, **kwargs)
+#тралала
+#trun
