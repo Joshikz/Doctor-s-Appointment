@@ -1,0 +1,32 @@
+p, h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 20px 0 20px;
+}
+
+h2{
+    margin: 20px 0 20px;
+}
+
+h3{
+    margin-bottom: 10px;
+}
+
+.doctor_list{
+    /* display: flex;
+    flex-direction: column; */
+
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    border: 2px solid black;
+    
+    width: 200px;
+}
+.doctor_list img{
+    /* height: 50%; */
+    width: 50%;
+    margin-bottom: 10px;
+}

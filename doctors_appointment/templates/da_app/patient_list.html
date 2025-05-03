@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'da_app/patient_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>Patients List</h2>
+    {% for patient in patients %}
+        <div class="patient_list">
+            <a href="{% url 'pat-details-page' p_id=patient.pk %}">
+                <h3>{{ patient.name }}</h3>
+                <p>{{patient.birth_date}}</p>
+            </a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

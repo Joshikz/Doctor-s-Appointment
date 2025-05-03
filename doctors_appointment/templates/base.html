@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block extra_css %}{% endblock %}
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome</h1>
+      <nav style="font-size: 18px; margin-bottom: 20px;">
+        <a href="{% url 'doctor_list' %}">Doctors</a> |
+        <a href="{% url 'patient_list' %}">Patients</a> |
+        <a href="{% url 'appointment_list' %}">Appointments</a>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      
+      {% endblock  %}
+    </main>
+    <footer></footer>
+  </body>
+</html>

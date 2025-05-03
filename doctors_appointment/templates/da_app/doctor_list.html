@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'da_app/doctor_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Doctors List</h2>
+        {% for doctor in doctors %}
+            <div class="doctor_list">
+                <a href="{% url 'doc-details-page' d_id=doctor.pk %}">
+                    <img src="{{ doctor.image.image.url }}" alt="Doctor Image">
+                    <h3>{{ doctor.name }}</h3>
+                    <p>{{doctor.specialty}}</p>
+                </a>
+            </div>
+        {% endfor %}
+
+{% endblock %}

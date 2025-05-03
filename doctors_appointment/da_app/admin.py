@@ -12,8 +12,8 @@ class CustomDoctorAdmin(admin.ModelAdmin):
     list_display = ("name", "specialty", "phone", "email")
     search_fields = ("name", "specialty")
     fieldsets = (
-        ("Основная информация", {"fields": ("name", "specialty")}),
-        ("Контактные данные", {"fields": ("phone", "email"), "classes": ("collapse",)}),
+        ("Main information", {"fields": ("name", "specialty")}),
+        ("Contacts", {"fields": ("phone", "email"), "classes": ("collapse",)}),
     )
 
 
@@ -22,8 +22,8 @@ class CustomPatientAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     list_display = ("name", "birth_date", "phone", "email")
     fieldsets = (
-        ("Основная информация", {"fields": ("name", "birth_date")}),
-        ("Контактные данные", {"fields": ("phone", "email"), "classes": ("collapse",)}),
+        ("Main information", {"fields": ("name", "birth_date")}),
+        ("Contacts", {"fields": ("phone", "email"), "classes": ("collapse",)}),
     )
 
 
@@ -35,10 +35,10 @@ class AppointmentAdmin(admin.ModelAdmin):
     def get_fieldsets(self, request, obj=None):
         if obj:
             return (
-                ("Доктор и пациент", {"fields": ("doctor", "patient")}),
-                ("Дата и время приёма", {"fields": ("date", "time")}),
+                ("Doctor and patient", {"fields": ("doctor", "patient")}),
+                ("Date and time of appointment", {"fields": ("date", "time")}),
                 (
-                    "Дополнительно",
+                    "Additional info",
                     {"fields": ("reason", "status"), "classes": ("collapse",)},
                 ),
             )

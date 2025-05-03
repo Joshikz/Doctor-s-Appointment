@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Appointment {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'da_app/appointment_list.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2>Appointments</h2>
+    {% for appointment in appointment %}
+    <div class="appointment_list">
+        <h3>Doctor: {{ appointment.doctor.name }}</h3>
+        <h3>Patient: {{ appointment.patient.name }}</h3>
+        <p>Date: {{ appointment.date }}</p>
+        <p>Reason: {{ appointment.reason }}</p>
+        <p>Status: {{ appointment.status }}</p>
+    </div>
+    {% endfor %}
+
+{% endblock %}

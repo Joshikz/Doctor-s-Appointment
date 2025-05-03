@@ -2,78 +2,55 @@ from django.db import models
 
 
 class Doctor(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Имя")  # имя врача
-    specialty = models.CharField(
-        max_length=100, verbose_name="Специальность"
-    )  # специальность
-    phone = models.CharField(
-        max_length=15, null=True, blank=True, verbose_name="Телефон"
-    )  # телефон врача
-    email = models.EmailField(
-        null=True, blank=True, verbose_name="Эл. почта"
-    )  # электронная почта
-
-    class Meta:
-        verbose_name = "Доктор"
-        verbose_name_plural = "Доктора"
+    name = models.CharField(max_length=100)  # doctors name
+    specialty = models.CharField(max_length=100)  # spetialty
+    phone = models.CharField(max_length=15, null=True, blank=True)  # doctors phone
+    email = models.EmailField(null=True, blank=True)  # email
 
     def __str__(self):
         return f"{self.name} ({self.specialty})"
 
 
 class Patient(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Имя")  # имя пациента
-    birth_date = models.DateField(verbose_name="Дата рождения")  # дата рождения
-    phone = models.CharField(
-        max_length=15, null=True, blank=True, verbose_name="Телефон"
-    )  # телефон пациента
-    email = models.EmailField(
-        null=True, blank=True, verbose_name="Эл. почта"
-    )  # электронная почта
-
-    class Meta:
-        verbose_name = "Пациент"
-        verbose_name_plural = "Пациенты"
+    name = models.CharField(max_length=100)  # patient name
+    birth_date = models.DateField()  # date of birth
+    phone = models.CharField(max_length=15, null=True, blank=True)  # patinet phone
+    email = models.EmailField(null=True, blank=True)  # email
 
     def __str__(self):
         return self.name
 
 
 class Appointment(models.Model):
-    doctor = models.ForeignKey(
-        Doctor, on_delete=models.CASCADE, verbose_name="Доктор"
-    )  # связь с доктором
-    patient = models.ForeignKey(
-        Patient, on_delete=models.CASCADE, verbose_name="Пациент"
-    )  # связь с пациентом
-    date = models.DateField(verbose_name="Дата приема")  # дата приёма
-    time = models.TimeField(verbose_name="Время приема")  # время приёма
-    reason = models.CharField(
-        max_length=255, null=True, blank=True, verbose_name="Причина визита"
-    )  # причина визита
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)  # link to doctor
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)  # link to patient
+    date = models.DateField()  # appointment date
+    time = models.TimeField()  # appointment time
+    reason = models.CharField(max_length=255, null=True, blank=True)  # reason for visit
     status = models.CharField(
         max_length=20,
         choices=[
-            ("Scheduled", "Запланирован"),
-            ("Completed", "Завершен"),
-            ("Cancelled", "Отменен"),
+            ("Scheduled", "Scheduled"),
+            ("Completed", "Completed"),
+            ("Cancelled", "Cancelled"),
         ],
         default="Scheduled",
-        verbose_name="Статус записи",
-    )  # статус записи
-
-    class Meta:
-        verbose_name = "Приём"
-        verbose_name_plural = "Приёмы"
+    )  # appointment status
 
     def __str__(self):
-        return f"{self.date} {self.time} — {self.patient.name} у {self.doctor.name}"
+        return f"{self.date} {self.time} — {self.patient.name} with {self.doctor.name}"
 
 
 class DoctorAttachment(models.Model):
-    verbose_name = "Фото Доктора"
-    image = models.ImageField(upload_to="image", verbose_name="Фото профиля")
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name="Доктор")
+    image = models.ImageField(upload_to="image")
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Doctor Image"
+        verbose_name_plural = "Doctor Images"
+
+    def __str__(self):
+        return f"{self.doctor.name} — {self.image.name}"
 
     def save(self, *args, **kwargs):
         self.name = self.image.name.split(".")[0].capitalize()

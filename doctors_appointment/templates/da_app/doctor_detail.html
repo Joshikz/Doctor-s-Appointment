@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Details{% endblock %}
+
+{% block content %}
+
+{% for image in images %}
+    <img src="{{ image.image.url }}" alt="Doctor Image" style="max-width: 200px;">
+{% endfor %}
+
+    <h2>Doctor: {{ doctor.name }}</h2>
+    <p>Specialty: {{ doctor.specialty }}</p>
+    <p>Phone: {{doctor.phone}}</p>
+    <p>Email: {{ doctor.email }}</p>
+
+    <button onclick="history.back()">← Back</button>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Details{% endblock %}
+
+{% block content %}
+
+    <h2>Patient: {{ patient.name }}</h2>
+    <p>Birth date: {{ patient.birth_date }}</p>
+    <p>Phone: {{patient.phone}}</p>
+    <p>Email: {{ patient.email }}</p>
+
+    <button onclick="history.back()">← Back</button>
+{% endblock %}
