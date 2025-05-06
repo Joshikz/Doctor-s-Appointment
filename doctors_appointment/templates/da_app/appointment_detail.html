@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Doctor Details{% endblock %}
+
+{% block content %}
+    <h2>Appointment: {{ appointment }}</h2>
+    <h3>Doctor: {{ appointment.doctor.name }}</h3>
+    <h3>Patient: {{ appointment.patient.name }}</h3>
+    <p>Date: {{ appointment.date }}</p>
+    <p>Time: {{ appointment.time }}</p>
+    <p>Reason: {{ appointment.reason }}</p>
+    <p>Status: {{ appointment.status }}</p>
+
+    <button onclick="history.back()">← Back</button>
+    <a href="{% url 'appointment_delete' a_id=appointment.pk %}">Delete</a>
+    <a href="{% url 'appointment_update' a_id=appointment.pk %}" class="btn-edit">Edit</a>
+{% endblock %}

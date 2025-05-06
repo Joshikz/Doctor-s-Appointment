@@ -10,11 +10,16 @@
         {% for doctor in doctors %}
             <div class="doctor_list">
                 <a href="{% url 'doc-details-page' d_id=doctor.pk %}">
-                    <img src="{{ doctor.image.image.url }}" alt="Doctor Image">
+                    {% if doctor.image %}
+                    <img src="{{ doctor.image.url }}" alt="Doctor Image">
+                    {% endif %}
                     <h3>{{ doctor.name }}</h3>
                     <p>{{doctor.specialty}}</p>
                 </a>
             </div>
         {% endfor %}
+        <div class="add_doctor">
+            <a href="{% url 'doctor_create' %}">Add Doctor</a>
+        </div>
 
 {% endblock %}

@@ -6,10 +6,15 @@ class Doctor(models.Model):
     specialty = models.CharField(max_length=100)  # spetialty
     phone = models.CharField(max_length=15, null=True, blank=True)  # doctors phone
     email = models.EmailField(null=True, blank=True)  # email
+    image = models.ImageField(
+        upload_to="image/",
+        null=True,
+        blank=True,
+        verbose_name="Doctor's image",
+    )
 
     def __str__(self):
         return f"{self.name} ({self.specialty})"
-
 
 class Patient(models.Model):
     name = models.CharField(max_length=100)  # patient name
@@ -41,17 +46,4 @@ class Appointment(models.Model):
         return f"{self.date} {self.time} — {self.patient.name} with {self.doctor.name}"
 
 
-class DoctorAttachment(models.Model):
-    image = models.ImageField(upload_to="image")
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
 
-    class Meta:
-        verbose_name = "Doctor Image"
-        verbose_name_plural = "Doctor Images"
-
-    def __str__(self):
-        return f"{self.doctor.name} — {self.image.name}"
-
-    def save(self, *args, **kwargs):
-        self.name = self.image.name.split(".")[0].capitalize()
-        super().save(*args, **kwargs)

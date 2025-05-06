@@ -10,4 +10,6 @@
     <p>Email: {{ patient.email }}</p>
 
     <button onclick="history.back()">← Back</button>
+    <a href="{% url 'patient_delete' p_id=patient.pk %}">Delete</a>
+    <a href="{% url 'patient_update' p_id=patient.pk %}">Edit</a>
 {% endblock %}

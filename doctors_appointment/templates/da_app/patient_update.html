@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Patient{% endblock %}
+
+{% block content %}
+<h2>Edit Patient</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{% url 'Patient_detail' %}">Cancel</a>
+</form>
+{% endblock %}

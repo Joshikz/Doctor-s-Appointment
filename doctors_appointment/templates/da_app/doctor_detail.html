@@ -4,9 +4,9 @@
 
 {% block content %}
 
-{% for image in images %}
-    <img src="{{ image.image.url }}" alt="Doctor Image" style="max-width: 200px;">
-{% endfor %}
+{% if doctor.image %}
+    <img src="{{ doctor.image.url }}" alt="Doctor Image" style="max-width: 200px;">
+{% endif %}
 
     <h2>Doctor: {{ doctor.name }}</h2>
     <p>Specialty: {{ doctor.specialty }}</p>
@@ -14,4 +14,6 @@
     <p>Email: {{ doctor.email }}</p>
 
     <button onclick="history.back()">← Back</button>
+    <a href="{% url 'doctor_delete' d_id=doctor.pk %}">Delete</a>
+    <a href="{% url 'doctor_update' d_id=doctor.pk %}" class="btn-edit">Edit</a>
 {% endblock %}

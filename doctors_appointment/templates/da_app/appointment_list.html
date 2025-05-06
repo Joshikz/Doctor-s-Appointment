@@ -11,13 +11,17 @@
 
 <h2>Appointments</h2>
     {% for appointment in appointment %}
-    <div class="appointment_list">
-        <h3>Doctor: {{ appointment.doctor.name }}</h3>
-        <h3>Patient: {{ appointment.patient.name }}</h3>
-        <p>Date: {{ appointment.date }}</p>
-        <p>Reason: {{ appointment.reason }}</p>
-        <p>Status: {{ appointment.status }}</p>
-    </div>
-    {% endfor %}
+    <a href="{% url 'appointment_detail' a_id=appointment.pk %}">
+        <div class="appointment_list">
+            <h3>Doctor: {{ appointment.doctor.name }}</h3>
+            <h3>Patient: {{ appointment.patient.name }}</h3>
+            <p>Date: {{ appointment.date }}, {{ appointment.time }}</p>        
+            <p>Status: {{ appointment.status }}</p>
+        </div>
+    </a>
 
+    {% endfor %}
+    <div class="add_appointment">
+            <a href="{% url 'appointment_create' %}">Add Appointment</a>
+    </div>
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Add Appointment{% endblock %}
+
+{% block content %}
+<h2>Add New Appointment</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    <a href="{% url 'appointment_list' %}">Cancel</a>
+</form>
+{% endblock %}

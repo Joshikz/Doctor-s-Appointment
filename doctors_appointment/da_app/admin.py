@@ -1,18 +1,14 @@
 from django.contrib import admin
-from .models import Doctor, Patient, Appointment, DoctorAttachment
+from .models import Doctor, Patient, Appointment
 
-
-admin.site.register(DoctorAttachment)
-# admin.site.register(Patient)
-# admin.site.register(Appointment)
 
 
 @admin.register(Doctor)
 class CustomDoctorAdmin(admin.ModelAdmin):
-    list_display = ("name", "specialty", "phone", "email")
+    list_display = ("name", "specialty", "phone", "email", "image")
     search_fields = ("name", "specialty")
     fieldsets = (
-        ("Main information", {"fields": ("name", "specialty")}),
+        ("Main information", {"fields": ("name", "specialty", "image")}),
         ("Contacts", {"fields": ("phone", "email"), "classes": ("collapse",)}),
     )
 
