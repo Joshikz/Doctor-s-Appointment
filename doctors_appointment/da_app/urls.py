@@ -33,5 +33,6 @@ urlpatterns = [
     path("appointments/create/", appointment_create, name="appointment_create"),
     path("appointments/<int:a_id>/", appointment_detail, name="appointment_detail"),
     path('appointments/update/<int:a_id>/', appointment_update, name='appointment_update'),
-    path('appointments/delete/<int:a_id>/', appointment_delete, name='appointment_delete'), 
+    path('appointments/delete/<int:a_id>/', appointment_delete, name='appointment_delete'),
+    
 ]
