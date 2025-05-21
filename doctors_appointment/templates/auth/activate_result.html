@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h2>account activation</h2>
+    {% if is_active %}
+        <p>Your account has been successfully activated!</p>
+    {% else %}
+        <p>The activation link has expired.</p>
+    {% endif %}
+{% endblock %}

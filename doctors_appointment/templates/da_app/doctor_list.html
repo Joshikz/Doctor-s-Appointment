@@ -18,8 +18,10 @@
                 </a>
             </div>
         {% endfor %}
+        {% if user.is_authenticated %}
         <div class="add_doctor">
             <a href="{% url 'doctor_create' %}">Add Doctor</a>
         </div>
 
+        {% endif %}
 {% endblock %}

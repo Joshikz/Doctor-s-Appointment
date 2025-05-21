@@ -15,7 +15,10 @@
             </a>
         </div>
     {% endfor %}
-    <div class="add_patient">
-        <a href="{% url 'patient_create' %}">Add Patient</a>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="add_patient">
+            <a href="{% url 'patient_create' %}">Add Patient</a>
+        </div>
+    {% endif %}
+    
 {% endblock %}

@@ -9,6 +9,15 @@
   </head>
   <body>
     <header>
+      <div style="float: right; margin-right: 20px;">
+        {% if user.is_authenticated %}
+          <p>{{ user.first_name }} {{ user.last_name }}</p>
+          <a href="{% url 'logout' %}"><button>Logout</button></a>
+        {% else %}
+          <a href="{% url 'login' %}"><button>Login</button></a>
+          <a href="{% url 'registr' %}"><button>Register</button></a>
+        {% endif %}
+      </div>
       <h1>Welcome</h1>
       <nav style="font-size: 18px; margin-bottom: 20px;">
         <a href="{% url 'doctor_list' %}">Doctors</a> |

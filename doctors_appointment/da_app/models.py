@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import User
 
 
 class Doctor(models.Model):
@@ -16,6 +17,7 @@ class Doctor(models.Model):
     def __str__(self):
         return f"{self.name} ({self.specialty})"
 
+
 class Patient(models.Model):
     name = models.CharField(max_length=100)  # patient name
     birth_date = models.DateField()  # date of birth
@@ -27,6 +29,7 @@ class Patient(models.Model):
 
 
 class Appointment(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # link to user
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)  # link to doctor
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)  # link to patient
     date = models.DateField()  # appointment date
@@ -44,6 +47,3 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.date} {self.time} — {self.patient.name} with {self.doctor.name}"
-
-
-

@@ -21,7 +21,9 @@
     </a>
 
     {% endfor %}
-    <div class="add_appointment">
+    {% if user.is_authenticated %}
+        <div class="add_appointment">
             <a href="{% url 'appointment_create' %}">Add Appointment</a>
-    </div>
+        </div>
+    {% endif %}
 {% endblock %}

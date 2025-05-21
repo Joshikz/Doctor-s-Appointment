@@ -16,16 +16,20 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
-
-
+from user.views import activate
 
 urlpatterns = [
-    path("admin/", admin.site.urls),  
+    path("admin/", admin.site.urls),
     path("", include("da_app.urls")),
     path("auth/", include("user.urls")),
+    re_path(
+        "activation/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/",
+        activate,
+        name="activate",
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
