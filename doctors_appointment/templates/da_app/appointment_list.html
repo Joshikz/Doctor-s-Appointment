@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load auth_extras %} {# Убедитесь, что теги загружены #}
 
 {% block title %}Appointment {% endblock %}
 
@@ -10,18 +11,24 @@
 {% block content %}
 
 <h2>Appointments</h2>
-    {% for appointment in appointment %}
+    {# Исправляем переменную цикла на 'appointments' #}
+    {% for appointment in appointments %}
     <a href="{% url 'appointment_detail' a_id=appointment.pk %}">
         <div class="appointment_list">
-            <h3>Doctor: {{ appointment.doctor.name }}</h3>
-            <h3>Patient: {{ appointment.patient.name }}</h3>
+            {# Получаем имена из связанных моделей User #}
+            <h3>Doctor: {{ appointment.doctor.user.get_full_name }}</h3>
+            <h3>Patient: {{ appointment.patient.user.get_full_name }}</h3>
             <p>Date: {{ appointment.date }}, {{ appointment.time }}</p>        
             <p>Status: {{ appointment.status }}</p>
         </div>
     </a>
-
+    {% empty %}
+        <p>You have no appointments.</p>
     {% endfor %}
-    {% if user.is_authenticated %}
+
+    {# Кнопка "Добавить запись" видна ТОЛЬКО пациентам #}
+    {# Кнопка "Добавить запись" видна пациентам И администраторам #}
+    {% if user|has_group:"Patients" or user.is_superuser %}
         <div class="add_appointment">
             <a href="{% url 'appointment_create' %}">Add Appointment</a>
         </div>

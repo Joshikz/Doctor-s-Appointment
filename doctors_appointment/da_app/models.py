@@ -1,12 +1,15 @@
 from django.db import models
 from user.models import User
+from django.conf import settings
 
 
 class Doctor(models.Model):
-    name = models.CharField(max_length=100)  # doctors name
-    specialty = models.CharField(max_length=100)  # spetialty
-    phone = models.CharField(max_length=15, null=True, blank=True)  # doctors phone
-    email = models.EmailField(null=True, blank=True)  # email
+    # OneToOneField гарантирует, что у одного пользователя может быть только один профиль врача
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True
+    )
+    specialty = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15, null=True, blank=True)
     image = models.ImageField(
         upload_to="image/",
         null=True,
@@ -15,26 +18,28 @@ class Doctor(models.Model):
     )
 
     def __str__(self):
-        return f"{self.name} ({self.specialty})"
+        # Берем имя и фамилию из связанной модели User
+        return f"{self.user.first_name} {self.user.last_name} ({self.specialty})"
 
 
 class Patient(models.Model):
-    name = models.CharField(max_length=100)  # patient name
-    birth_date = models.DateField()  # date of birth
-    phone = models.CharField(max_length=15, null=True, blank=True)  # patinet phone
-    email = models.EmailField(null=True, blank=True)  # email
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True
+    )
+    birth_date = models.DateField(null=True, blank=True)
+    phone = models.CharField(max_length=15, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.user.get_full_name() or self.user.email
 
 
 class Appointment(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)  # link to user
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)  # link to doctor
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)  # link to patient
-    date = models.DateField()  # appointment date
-    time = models.TimeField()  # appointment time
-    reason = models.CharField(max_length=255, null=True, blank=True)  # reason for visit
+    # Теперь мы ссылаемся на профили, которые связаны с пользователями
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()
+    reason = models.CharField(max_length=255, null=True, blank=True)
     status = models.CharField(
         max_length=20,
         choices=[
@@ -43,7 +48,8 @@ class Appointment(models.Model):
             ("Cancelled", "Cancelled"),
         ],
         default="Scheduled",
-    )  # appointment status
+    )
 
     def __str__(self):
-        return f"{self.date} {self.time} — {self.patient.name} with {self.doctor.name}"
+        # Обратите внимание, как мы получаем имена через связанные модели
+        return f"{self.date} {self.time} — {self.patient.user.first_name} with Dr. {self.doctor.user.first_name}"

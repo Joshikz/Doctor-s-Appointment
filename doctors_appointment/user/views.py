@@ -11,6 +11,8 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils import timezone
 from django.template.loader import render_to_string
 from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth.models import Group
+from da_app.models import Patient
 
 # Create your views here.
 
@@ -79,6 +81,19 @@ def activate(request, uidb64, token):
         if time_elapsed.total_seconds() < 900:
             user.is_active = True
             user.save()
+
+            try:
+                # Добавляем в группу
+                patient_group = Group.objects.get(name="Patients")  # или 'Пациенты'
+                user.groups.add(patient_group)
+
+                # И сразу создаем для него профиль пациента, если его еще нет
+                if not Patient.objects.filter(user=user).exists():
+                    Patient.objects.create(user=user)
+
+            except Group.DoesNotExist:
+                print("ОШИБКА: Группа 'Patients' не найдена.")
+
             return render(request, "auth/activate_result.html", {"is_active": True})
         else:
             return render(

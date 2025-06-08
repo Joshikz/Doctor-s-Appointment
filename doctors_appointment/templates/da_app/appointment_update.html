@@ -9,6 +9,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
-    <a href="{% url 'appointment_detail' %}">Cancel</a>
+    {# Исправляем ссылку, чтобы она вела обратно на страницу этой записи #}
+    <a href="{% url 'appointment_detail' a_id=form.instance.pk %}">Cancel</a>
 </form>
 {% endblock %}

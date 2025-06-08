@@ -4,12 +4,22 @@
 
 {% block content %}
 
-    <h2>Patient: {{ patient.name }}</h2>
+    {# Используем данные из связанной модели User #}
+    <h2>Patient: {{ patient.user.get_full_name }}</h2>
     <p>Birth date: {{ patient.birth_date }}</p>
-    <p>Phone: {{patient.phone}}</p>
-    <p>Email: {{ patient.email }}</p>
+    <p>Phone: {{ patient.phone }}</p>
+    <p>Email: {{ patient.user.email }}</p>
 
     <button onclick="history.back()">← Back</button>
-    <a href="{% url 'patient_delete' p_id=patient.pk %}">Delete</a>
-    <a href="{% url 'patient_update' p_id=patient.pk %}">Edit</a>
+
+    {# Кнопка "Редактировать" видна владельцу профиля и администратору #}
+    {% if user == patient.user or user.is_superuser %}
+        <a href="{% url 'patient_update' p_id=patient.pk %}">Edit</a>
+    {% endif %}
+
+    {# Кнопка "Удалить" видна ТОЛЬКО администратору #}
+    {% if user.is_superuser %}
+        <a href="{% url 'patient_delete' p_id=patient.pk %}">Delete</a>
+    {% endif %}
+    
 {% endblock %}

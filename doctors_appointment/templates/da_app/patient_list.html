@@ -9,13 +9,17 @@
 <h2>Patients List</h2>
     {% for patient in patients %}
         <div class="patient_list">
+            {# Ссылка на детальную страницу пациента #}
             <a href="{% url 'pat-details-page' p_id=patient.pk %}">
-                <h3>{{ patient.name }}</h3>
-                <p>{{patient.birth_date}}</p>
+                {# Используем полное имя из связанной модели User #}
+                <h3>{{ patient.user.get_full_name }}</h3>
+                <p>{{ patient.birth_date }}</p>
             </a>
         </div>
     {% endfor %}
-    {% if user.is_authenticated %}
+
+    {# Кнопка "Добавить пациента" видна ТОЛЬКО администратору #}
+    {% if user.is_superuser %}
         <div class="add_patient">
             <a href="{% url 'patient_create' %}">Add Patient</a>
         </div>

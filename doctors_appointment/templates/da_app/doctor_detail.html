@@ -8,12 +8,18 @@
     <img src="{{ doctor.image.url }}" alt="Doctor Image" style="max-width: 200px;">
 {% endif %}
 
-    <h2>Doctor: {{ doctor.name }}</h2>
+    {# Используем данные из связанной модели User #}
+    <h2>Doctor: {{ doctor.user.get_full_name }}</h2>
     <p>Specialty: {{ doctor.specialty }}</p>
-    <p>Phone: {{doctor.phone}}</p>
-    <p>Email: {{ doctor.email }}</p>
+    <p>Phone: {{ doctor.phone }}</p>
+    <p>Email: {{ doctor.user.email }}</p>
 
     <button onclick="history.back()">← Back</button>
-    <a href="{% url 'doctor_delete' d_id=doctor.pk %}">Delete</a>
-    <a href="{% url 'doctor_update' d_id=doctor.pk %}" class="btn-edit">Edit</a>
+
+    {# Кнопки для управления видны ТОЛЬКО администратору #}
+    {% if user.is_superuser %}
+        <a href="{% url 'doctor_delete' d_id=doctor.pk %}">Delete</a>
+        <a href="{% url 'doctor_update' d_id=doctor.pk %}" class="btn-edit">Edit</a>
+    {% endif %}
+
 {% endblock %}

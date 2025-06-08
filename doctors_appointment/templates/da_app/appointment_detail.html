@@ -1,18 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}Doctor Details{% endblock %}
+{% block title %}Appointment Details{% endblock %}
 
 {% block content %}
+    {# Используем __str__ модели, который мы настраивали #}
     <h2>Appointment: {{ appointment }}</h2>
-    <h3>Doctor: {{ appointment.doctor.name }}</h3>
-    <h3>Patient: {{ appointment.patient.name }}</h3>
-    <h3>Author: {{ appointment.author.first_name }} {{ appointment.author.last_name }}</h3>
+    
+    {# Получаем имена из связанных моделей User #}
+    <h3>Doctor: {{ appointment.doctor.user.get_full_name }}</h3>
+    <h3>Patient: {{ appointment.patient.user.get_full_name }}</h3>
+    
+    {# Поле author мы удалили из модели, оно больше не нужно #}
+    
     <p>Date: {{ appointment.date }}</p>
     <p>Time: {{ appointment.time }}</p>
     <p>Reason: {{ appointment.reason }}</p>
     <p>Status: {{ appointment.status }}</p>
 
     <button onclick="history.back()">← Back</button>
-    <a href="{% url 'appointment_delete' a_id=appointment.pk %}">Delete</a>
-    <a href="{% url 'appointment_update' a_id=appointment.pk %}" class="btn-edit">Edit</a>
+
+    {# Кнопка "Edit" видна пациенту, врачу и админу #}
+    {% if user == appointment.patient.user or user == appointment.doctor.user or user.is_superuser %}
+        <a href="{% url 'appointment_update' a_id=appointment.pk %}" class="btn-edit">Edit</a>
+    {% endif %}
+
+    {# Кнопка "Delete" видна пациенту и админу #}
+    {% if user == appointment.patient.user or user.is_superuser %}
+        <a href="{% url 'appointment_delete' a_id=appointment.pk %}">Delete</a>
+    {% endif %}
 {% endblock %}

@@ -1,3 +1,5 @@
+{% load static %}
+{% load auth_extras %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,12 @@
       <div style="float: right; margin-right: 20px;">
         {% if user.is_authenticated %}
           <p>{{ user.first_name }} {{ user.last_name }}</p>
+
+          {# --- ДОБАВЛЕНО: Ссылка на свой профиль для пациента --- #}
+          {% if user|has_group:"Пациенты" %}
+            <a href="{% url 'pat-details-page' p_id=user.pk %}"><button>My Profile</button></a>
+          {% endif %}
+
           <a href="{% url 'logout' %}"><button>Logout</button></a>
         {% else %}
           <a href="{% url 'login' %}"><button>Login</button></a>
@@ -21,7 +29,12 @@
       <h1>Welcome</h1>
       <nav style="font-size: 18px; margin-bottom: 20px;">
         <a href="{% url 'doctor_list' %}">Doctors</a> |
-        <a href="{% url 'patient_list' %}">Patients</a> |
+        
+        {# --- ИЗМЕНЕНО: Ссылка "Patients" теперь в условии --- #}
+        {% if user.is_superuser or user|has_group:"Врачи" %}
+            <a href="{% url 'patient_list' %}">Patients</a> |
+        {% endif %}
+
         <a href="{% url 'appointment_list' %}">Appointments</a>
       </nav>
     </header>
