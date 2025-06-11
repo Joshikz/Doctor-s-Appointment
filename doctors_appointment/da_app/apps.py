@@ -5,3 +5,6 @@ class DaAppConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "da_app"
     verbose_name = "Doctor appontments"
+
+    def ready(self):
+        import da_app.translations

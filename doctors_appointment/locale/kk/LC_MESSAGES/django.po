@@ -1,0 +1,62 @@
+# Kazakh translations for doctors_appointment project.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Victor Li <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 02:40+0500\n"
+"PO-Revision-Date: 2025-06-12 03:10+0500\n"
+"Last-Translator: Victor Li <EMAIL@ADDRESS>\n"
+"Language-Team: Kazakh <kk@li.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: .\doctors_appointment\settings.py:116
+msgid "Russian"
+msgstr "Орысша"
+
+#: .\doctors_appointment\settings.py:117
+msgid "English"
+msgstr "Ағылшынша"
+
+#: .\doctors_appointment\settings.py:118
+msgid "Kazakh"
+msgstr "Қазақша"
+
+#: .\templates\base.html:42
+msgid "My profile"
+msgstr "Менің профилім"
+
+#: .\templates\base.html:45
+msgid "Logout"
+msgstr "Шығу"
+
+#: .\templates\base.html:47
+msgid "Login"
+msgstr "Кіру"
+
+#: .\templates\base.html:48
+msgid "Register"
+msgstr "Тіркелу"
+
+#: .\templates\base.html:51
+msgid "Welcome"
+msgstr "Қош келдіңіз"
+
+#: .\templates\base.html:53
+msgid "Doctors"
+msgstr "Дәрігерлер"
+
+#: .\templates\base.html:57
+msgid "Patients"
+msgstr "Пациенттер"
+
+#: .\templates\base.html:60
+msgid "Appointments"
+msgstr "Жазылулар"

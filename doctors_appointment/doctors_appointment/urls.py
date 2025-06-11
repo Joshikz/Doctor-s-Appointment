@@ -20,16 +20,22 @@ from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
 from user.views import activate
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("da_app.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
+]
+urlpatterns += i18n_patterns(
+     path("", include("da_app.urls")),
     path("auth/", include("user.urls")),
     path(
         "activation/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/",
         activate,
         name="activate",
     ),
-]
+)
+   
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,64 @@
+# Russian translations for doctors_appointment project.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Victor Li <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-12 03:15+0500\n"
+"PO-Revision-Date: 2025-06-12 03:15+0500\n"
+"Last-Translator: Victor Li <EMAIL@ADDRESS>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\doctors_appointment\settings.py:116
+msgid "Russian"
+msgstr "Русский"
+
+#: .\doctors_appointment\settings.py:117
+msgid "English"
+msgstr "Английский"
+
+#: .\doctors_appointment\settings.py:118
+msgid "Kazakh"
+msgstr "Казахский"
+
+#: .\templates\base.html:42
+msgid "My profile"
+msgstr "Мой профиль"
+
+#: .\templates\base.html:45
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\templates\base.html:47
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\base.html:48
+msgid "Register"
+msgstr "Регистрация"
+
+#: .\templates\base.html:51
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: .\templates\base.html:53
+msgid "Doctors"
+msgstr "Врачи"
+
+#: .\templates\base.html:57
+msgid "Patients"
+msgstr "Пациенты"
+
+#: .\templates\base.html:60
+msgid "Appointments"
+msgstr "Записи"
