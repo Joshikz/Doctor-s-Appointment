@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% load auth_extras %}
 
 {% block title %}Appointment {% endblock %}
@@ -10,7 +10,7 @@
 
 {% block content %}
 
-<h2>Appointments</h2>
+<h2>{% trans "Appointments" %}</h2>
     {% for appointment in appointments %}
     <a href="{% url 'appointment_detail' a_id=appointment.pk %}">
         <div class="appointment_list">
@@ -21,7 +21,7 @@
         </div>
     </a>
     {% empty %}
-        <p>You have no appointments.</p>
+    <p>{% trans "You have no appointments." %}</p>
     {% endfor %}
 
     {% if user|has_group:"Patients" or user.is_superuser %}

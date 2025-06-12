@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-12 03:15+0500\n"
+"POT-Creation-Date: 2025-06-12 16:48+0500\n"
 "PO-Revision-Date: 2025-06-12 03:15+0500\n"
 "Last-Translator: Victor Li <EMAIL@ADDRESS>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -19,48 +19,58 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\doctors_appointment\settings.py:116
+#: .\doctors_appointment\settings.py:117
 msgid "Russian"
 msgstr "Русский"
 
-#: .\doctors_appointment\settings.py:117
+#: .\doctors_appointment\settings.py:118
 msgid "English"
 msgstr "Английский"
 
-#: .\doctors_appointment\settings.py:118
+#: .\doctors_appointment\settings.py:119
 msgid "Kazakh"
 msgstr "Казахский"
 
-#: .\templates\base.html:42
+#: .\templates\base.html:34
 msgid "My profile"
 msgstr "Мой профиль"
 
-#: .\templates\base.html:45
+#: .\templates\base.html:37
 msgid "Logout"
 msgstr "Выйти"
 
-#: .\templates\base.html:47
+#: .\templates\base.html:39
 msgid "Login"
 msgstr "Войти"
 
-#: .\templates\base.html:48
+#: .\templates\base.html:40
 msgid "Register"
 msgstr "Регистрация"
 
-#: .\templates\base.html:51
+#: .\templates\base.html:43
 msgid "Welcome"
 msgstr "Добро пожаловать"
 
-#: .\templates\base.html:53
+#: .\templates\base.html:45
 msgid "Doctors"
 msgstr "Врачи"
 
-#: .\templates\base.html:57
+#: .\templates\base.html:48
 msgid "Patients"
 msgstr "Пациенты"
 
-#: .\templates\base.html:60
+#: .\templates\base.html:51 .\templates\da_app\appointment_list.html:13
 msgid "Appointments"
 msgstr "Записи"
 
+#: .\templates\da_app\appointment_list.html:24
+msgid "You have no appointments."
+msgstr "У вас нет записей."
 
+#: .\templates\da_app\doctor_list.html:9
+msgid "Doctors List"
+msgstr "Список врачей"
+
+#: .\templates\da_app\doctor_list.html:24
+msgid "Add doctor"
+msgstr ""

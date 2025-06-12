@@ -31,18 +31,19 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = "user.User"
 # Application definition
 
+# settings.py
+
 INSTALLED_APPS = [
-    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "modeltranslation",
+    "django.contrib.admin",
     "da_app",
     "user",
 ]
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",

@@ -12,6 +12,7 @@
                 <a href="{% url 'doc-details-page' d_id=doctor.pk %}">
                     {% if doctor.image %}
                     <img src="{{ doctor.image.url }}" alt="Doctor Image">
+                    {% endif %}
                     <h3>{{ doctor.user.get_full_name }}</h3>
                     <p>{{ doctor.specialty }}</p>
                 </a>

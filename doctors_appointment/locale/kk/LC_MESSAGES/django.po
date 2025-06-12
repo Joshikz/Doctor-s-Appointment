@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-12 02:40+0500\n"
+"POT-Creation-Date: 2025-06-12 16:48+0500\n"
 "PO-Revision-Date: 2025-06-12 03:10+0500\n"
 "Last-Translator: Victor Li <EMAIL@ADDRESS>\n"
 "Language-Team: Kazakh <kk@li.org>\n"
@@ -17,46 +17,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: .\doctors_appointment\settings.py:116
+#: .\doctors_appointment\settings.py:117
 msgid "Russian"
 msgstr "Орысша"
 
-#: .\doctors_appointment\settings.py:117
+#: .\doctors_appointment\settings.py:118
 msgid "English"
 msgstr "Ағылшынша"
 
-#: .\doctors_appointment\settings.py:118
+#: .\doctors_appointment\settings.py:119
 msgid "Kazakh"
 msgstr "Қазақша"
 
-#: .\templates\base.html:42
+#: .\templates\base.html:34
 msgid "My profile"
 msgstr "Менің профилім"
 
-#: .\templates\base.html:45
+#: .\templates\base.html:37
 msgid "Logout"
 msgstr "Шығу"
 
-#: .\templates\base.html:47
+#: .\templates\base.html:39
 msgid "Login"
 msgstr "Кіру"
 
-#: .\templates\base.html:48
+#: .\templates\base.html:40
 msgid "Register"
 msgstr "Тіркелу"
 
-#: .\templates\base.html:51
+#: .\templates\base.html:43
 msgid "Welcome"
 msgstr "Қош келдіңіз"
 
-#: .\templates\base.html:53
+#: .\templates\base.html:45
 msgid "Doctors"
 msgstr "Дәрігерлер"
 
-#: .\templates\base.html:57
+#: .\templates\base.html:48
 msgid "Patients"
 msgstr "Пациенттер"
 
-#: .\templates\base.html:60
+#: .\templates\base.html:51 .\templates\da_app\appointment_list.html:13
 msgid "Appointments"
 msgstr "Жазылулар"
+
+#: .\templates\da_app\appointment_list.html:24
+msgid "You have no appointments."
+msgstr "Сізде жазылулар жоқ."
+
+#: .\templates\da_app\doctor_list.html:9
+msgid "Doctors List"
+msgstr "Дәрігерлер тізімі"
+
+#: .\templates\da_app\doctor_list.html:24
+msgid "Add doctor"
+msgstr ""

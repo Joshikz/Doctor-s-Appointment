@@ -30,7 +30,7 @@
         {% if user.is_authenticated %}
           <p>{{ user.first_name }} {{ user.last_name }}</p>
 
-          {% if user|has_group:"Пациенты" %}
+          {% if user|has_group:"Patients" %}
             <a href="{% url 'pat-details-page' p_id=user.pk %}"><button>{% trans "My profile" %}</button></a>
           {% endif %}
 
@@ -44,7 +44,7 @@
       <nav style="font-size: 18px; margin-bottom: 20px;">
         <a href="{% url 'doctor_list' %}">{% trans "Doctors" %}</a> |
         
-        {% if user.is_superuser or user|has_group:"Doctors" %}
+        {% if user.is_superuser %}
             <a href="{% url 'patient_list' %}">{% trans "Patients" %}</a> |
         {% endif %}
 
