@@ -1,25 +1,24 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Patient Details{% endblock %}
+{% block title %}{% trans "Patient Details" %}{% endblock %}
 
 {% block content %}
 
     {# Используем данные из связанной модели User #}
-    <h2>Patient: {{ patient.user.get_full_name }}</h2>
-    <p>Birth date: {{ patient.birth_date }}</p>
-    <p>Phone: {{ patient.phone }}</p>
-    <p>Email: {{ patient.user.email }}</p>
+    <h2>{% trans "Patient" %}: {{ patient.user.get_full_name }}</h2>
+    <p>{% trans "Birth date" %}: {{ patient.birth_date }}</p>
+    <p>{% trans "Phone" %}: {{ patient.phone }}</p>
+    <p>{% trans "Email" %}: {{ patient.user.email }}</p>
 
-    <button onclick="history.back()">← Back</button>
+    <button onclick="history.back()">← {% trans "Back" %}</button>
 
-    {# Кнопка "Редактировать" видна владельцу профиля и администратору #}
     {% if user == patient.user or user.is_superuser %}
-        <a href="{% url 'patient_update' p_id=patient.pk %}">Edit</a>
+        <a href="{% url 'patient_update' p_id=patient.pk %}">{% trans "Edit" %}</a>
     {% endif %}
 
-    {# Кнопка "Удалить" видна ТОЛЬКО администратору #}
     {% if user.is_superuser %}
-        <a href="{% url 'patient_delete' p_id=patient.pk %}">Delete</a>
+        <a href="{% url 'patient_delete' p_id=patient.pk %}">{% trans "Delete" %}</a>
     {% endif %}
     
 {% endblock %}

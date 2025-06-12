@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block content %}
-  {# Делаем сообщение более понятным #}
-  <h2>Delete appointment for "{{ appointment.patient.user.get_full_name }}" with "{{ appointment.doctor.user.get_full_name }}" on {{ appointment.date }}?</h2>
+  <h2>
+    {% blocktrans with patient=appointment.patient.user.get_full_name doctor=appointment.doctor.user.get_full_name date=appointment.date %}
+      Delete appointment for "{{ patient }}" with "{{ doctor }}" on {{ date }}?
+    {% endblocktrans %}
+  </h2>
   <form method="post">
     {% csrf_token %}
-    <button type="submit">Confirm</button>
-    <a href="{% url 'appointment_list' %}">Cancel</a>
+    <button type="submit">{% trans "Confirm" %}</button>
+    <a href="{% url 'appointment_list' %}">{% trans "Cancel" %}</a>
   </form>
 {% endblock %}

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-12 16:48+0500\n"
+"POT-Creation-Date: 2025-06-12 22:55+0500\n"
 "PO-Revision-Date: 2025-06-12 03:10+0500\n"
 "Last-Translator: Victor Li <EMAIL@ADDRESS>\n"
 "Language-Team: Kazakh <kk@li.org>\n"
@@ -17,15 +17,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: .\doctors_appointment\settings.py:117
+#: .\da_app\models.py:14 .\templates\da_app\doctor_detail.html:17
+msgid "Specialty"
+msgstr "Мамандығы"
+
+#: .\da_app\models.py:17 .\da_app\models.py:39
+#: .\templates\da_app\doctor_detail.html:18
+#: .\templates\da_app\patient_detail.html:11
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\da_app\models.py:23
+#| msgid "Doctors List"
+msgid "Doctor's image"
+msgstr "Дәрігердің суреті"
+
+#: .\da_app\models.py:36 .\templates\da_app\patient_detail.html:10
+#: .\templates\da_app\patient_list.html:14
+msgid "Birth date"
+msgstr "Туған күні"
+
+#: .\da_app\models.py:49 .\templates\da_app\appointment_detail.html:10
+#: .\templates\da_app\appointment_list.html:19
+#: .\templates\da_app\patient_detail.html:9
+msgid "Patient"
+msgstr "Пациент"
+
+#: .\da_app\models.py:52 .\templates\da_app\appointment_detail.html:9
+#: .\templates\da_app\appointment_list.html:18
+#: .\templates\da_app\doctor_detail.html:16
+msgid "Doctor"
+msgstr "Дәрігер"
+
+#: .\da_app\models.py:54 .\templates\da_app\appointment_detail.html:11
+#: .\templates\da_app\appointment_list.html:20
+msgid "Date"
+msgstr "Күні"
+
+#: .\da_app\models.py:55 .\templates\da_app\appointment_detail.html:12
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
+msgid "Time"
+msgstr "Уақыты"
+
+#: .\da_app\models.py:57 .\templates\da_app\appointment_detail.html:13
+msgid "Reason"
+msgstr "Себебі"
+
+#: .\da_app\models.py:62
+msgid "Scheduled"
+msgstr "Жоспарланған"
+
+#: .\da_app\models.py:63
+msgid "Completed"
+msgstr "Аяқталған"
+
+#: .\da_app\models.py:64
+#| msgid "Cancel"
+msgid "Cancelled"
+msgstr "Бас тартылды"
+
+#: .\da_app\models.py:67 .\templates\da_app\appointment_detail.html:14
+#: .\templates\da_app\appointment_list.html:21
+msgid "Status"
+msgstr "Күйі"
+
+#: .\doctors_appointment\settings.py:118
 msgid "Russian"
 msgstr "Орысша"
 
-#: .\doctors_appointment\settings.py:118
+#: .\doctors_appointment\settings.py:119
 msgid "English"
 msgstr "Ағылшынша"
 
-#: .\doctors_appointment\settings.py:119
+#: .\doctors_appointment\settings.py:120
 msgid "Kazakh"
 msgstr "Қазақша"
 
@@ -57,13 +121,126 @@ msgstr "Дәрігерлер"
 msgid "Patients"
 msgstr "Пациенттер"
 
-#: .\templates\base.html:51 .\templates\da_app\appointment_list.html:13
+#: .\templates\base.html:51 .\templates\da_app\appointment_list.html:14
 msgid "Appointments"
 msgstr "Жазылулар"
 
-#: .\templates\da_app\appointment_list.html:24
+#: .\templates\da_app\appointment_create.html:4
+#: .\templates\da_app\appointment_list.html:30
+msgid "Add Appointment"
+msgstr "Жаңа жазылу қосу"
+
+#: .\templates\da_app\appointment_create.html:7
+msgid "Add New Appointment"
+msgstr "Жаңа жазылу қосу"
+
+#: .\templates\da_app\appointment_create.html:19
+#: .\templates\da_app\appointment_update.html:12
+#: .\templates\da_app\doctor_create.html:26
+#: .\templates\da_app\doctor_update.html:16
+#: .\templates\da_app\patient_create.html:16
+#: .\templates\da_app\patient_update.html:12
+msgid "Save"
+msgstr "Сақтау"
+
+#: .\templates\da_app\appointment_create.html:20
+#: .\templates\da_app\appointment_delete.html:14
+#: .\templates\da_app\appointment_update.html:13
+#: .\templates\da_app\doctor_create.html:27
+#: .\templates\da_app\doctor_delete.html:15
+#: .\templates\da_app\doctor_update.html:17
+#: .\templates\da_app\patient_create.html:17
+#: .\templates\da_app\patient_delete.html:18
+#: .\templates\da_app\patient_update.html:13
+msgid "Cancel"
+msgstr "Бас тарту"
+
+#: .\templates\da_app\appointment_delete.html:7
+#, python-format
+#| msgid ""
+#| "      Delete appointment for \"%(patient)s\" with \"%(doctor)s\" on "
+#| "%(date)s?\n"
+#| "    "
+msgid "Delete appointment for \"%(patient)s\" with \"%(doctor)s\" on %(date)s?"
+msgstr "\"%(patient)s\" пациенті үшін \"%(doctor)s\" дәрігерімен %(date)s күніне жазылуды өшіруді қалайсыз ба?"
+
+#: .\templates\da_app\appointment_delete.html:13
+#: .\templates\da_app\doctor_delete.html:14
+#: .\templates\da_app\patient_delete.html:17
+msgid "Confirm"
+msgstr "Растау"
+
+#: .\templates\da_app\appointment_detail.html:4
+msgid "Appointment Details"
+msgstr "Жазылу туралы мәліметтер"
+
+#: .\templates\da_app\appointment_detail.html:7
+#, python-format
+msgid "Appointment: %(appointment)s"
+msgstr "Жазылу: %(appointment)s"
+
+#: .\templates\da_app\appointment_detail.html:16
+#: .\templates\da_app\doctor_detail.html:21
+#: .\templates\da_app\patient_detail.html:14
+msgid "Back"
+msgstr "Артқа"
+
+#: .\templates\da_app\appointment_detail.html:19
+#: .\templates\da_app\doctor_detail.html:25
+#: .\templates\da_app\patient_detail.html:17
+msgid "Edit"
+msgstr "Өзгерту"
+
+#: .\templates\da_app\appointment_detail.html:23
+#: .\templates\da_app\doctor_detail.html:24
+#: .\templates\da_app\patient_detail.html:21
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "Өшіру"
+
+#: .\templates\da_app\appointment_list.html:6
+msgid "Appointment"
+msgstr "Жазылу"
+
+#: .\templates\da_app\appointment_list.html:25
 msgid "You have no appointments."
 msgstr "Сізде жазылулар жоқ."
+
+#: .\templates\da_app\appointment_update.html:4
+#: .\templates\da_app\appointment_update.html:7
+msgid "Edit Appointment"
+msgstr "Жазылуды өзгерту"
+
+#: .\templates\da_app\doctor_create.html:4
+#| msgid "Add doctor"
+msgid "Add Doctor"
+msgstr "Дәрігер қосу"
+
+#: .\templates\da_app\doctor_create.html:7
+#| msgid "Add doctor"
+msgid "Add New Doctor"
+msgstr "Дәрігер қосу"
+
+#: .\templates\da_app\doctor_delete.html:4
+#: .\templates\da_app\doctor_delete.html:11
+#| msgid "Doctor"
+msgid "Delete Doctor"
+msgstr "Дәрігерді өшіру"
+
+#: .\templates\da_app\doctor_detail.html:8
+#| msgid "Doctors List"
+msgid "Doctor Details"
+msgstr "Дәрігерлер тізімі"
+
+#: .\templates\da_app\doctor_detail.html:13
+#| msgid "Doctors List"
+msgid "Doctor Image"
+msgstr "Дәрігердің суреті"
+
+#: .\templates\da_app\doctor_detail.html:19
+#: .\templates\da_app\patient_detail.html:12
+msgid "Email"
+msgstr ""
 
 #: .\templates\da_app\doctor_list.html:9
 msgid "Doctors List"
@@ -71,4 +248,1314 @@ msgstr "Дәрігерлер тізімі"
 
 #: .\templates\da_app\doctor_list.html:24
 msgid "Add doctor"
+msgstr "Дәрігер қосу"
+
+#: .\templates\da_app\doctor_update.html:8
+#: .\templates\da_app\doctor_update.html:11
+#| msgid "Doctor"
+msgid "Edit Doctor"
+msgstr "Дәрігер"
+
+#: .\templates\da_app\patient_create.html:8
+#: .\templates\da_app\patient_list.html:21
+msgid "Add Patient"
+msgstr "Пациент қосу"
+
+#: .\templates\da_app\patient_create.html:11
+#| msgid "Add Patient"
+msgid "Add New Patient"
+msgstr "Пациент қосу"
+
+#: .\templates\da_app\patient_delete.html:5
+#: .\templates\da_app\patient_delete.html:14
+#| msgid "Patient"
+msgid "Delete Patient"
+msgstr "Пациентті өшіру"
+
+#: .\templates\da_app\patient_detail.html:4
+#| msgid "Patients List"
+msgid "Patient Details"
+msgstr "Пациенттер тізімі"
+
+#: .\templates\da_app\patient_list.html:9
+msgid "Patients List"
+msgstr "Пациенттер тізімі"
+
+#: .\templates\da_app\patient_update.html:4
+#: .\templates\da_app\patient_update.html:7
+#| msgid "Add Patient"
+msgid "Edit Patient"
+msgstr "Пациент қосу"
+
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr "Хабарламалар"
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr "Сайт карталары"
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr "Статикалық файлдар"
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr "Синдикация"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr "Бұл бет нөмірі бүтін сан емес"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr "Бұл бет нөмірі 1-ден аз"
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr "Бұл бетте нәтиже жоқ"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr "Дұрыс мән енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr "Дұрыс домен атауын енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr "Дұрыс URL енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr "Дұрыс бүтін сан енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr "Дұрыс электрондық пошта енгізіңіз."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
 msgstr ""
+"Тек әріптерден, сандардан, астыңғы сызықтан немесе сызықшадан тұратын дұрыс "
+"«slug» енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+"Юникод әріптері, сандар, астыңғы сызық немесе сызықша бар дұрыс «slug» "
+"енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr "Дұрыс %(protocol)s мекенжайын енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr "IPv4"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr "IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr "IPv4 немесе IPv6"
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr "Тек үтірмен бөлінген сандарды енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Бұл мән %(limit_value)s болуы керек (қазір %(show_value)s)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Бұл мән %(limit_value)s-ден аз немесе тең болуы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Бұл мән %(limit_value)s-ден көп немесе тең болуы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr "Бұл мән %(limit_value)s еселігі болуы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+"Бұл мән %(offset)s бастап %(limit_value)s еселігі болуы керек, мысалы: "
+"%(offset)s, %(valid_value1)s, %(valid_value2)s және т.б."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Бұл мән кемінде %(limit_value)d таңбадан тұруы керек (қазір %(show_value)d)."
+msgstr[1] ""
+"Бұл мән кемінде %(limit_value)d таңбадан тұруы керек (қазір %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Бұл мән ең көбі %(limit_value)d таңбадан аспауы керек (қазір %(show_value)d)."
+msgstr[1] ""
+"Бұл мән ең көбі %(limit_value)d таңбадан аспауы керек (қазір %(show_value)d)."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr "Сан енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] "Жалпы таңбалар саны %(max)s-ден аспауы керек."
+msgstr[1] "Жалпы таңбалар саны %(max)s-ден аспауы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] "Ондық таңбалар саны %(max)s-ден аспауы керек."
+msgstr[1] "Ондық таңбалар саны %(max)s-ден аспауы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] "Үтірге дейінгі таңбалар саны %(max)s-ден аспауы керек."
+msgstr[1] "Үтірге дейінгі таңбалар саны %(max)s-ден аспауы керек."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"«%(extension)s» кеңейтімі рұқсат етілмеген. Рұқсат етілген кеңейтімдер: "
+"%(allowed_extensions)s."
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr "Бос таңбаларға рұқсат етілмейді."
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr "және"
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "Бұл %(field_labels)s бар %(model_name)s бұрыннан бар."
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr "«%(name)s» шектеуі бұзылды."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr "%(value)r мәні дұрыс таңдау емес."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr "Бұл өріс бос болмауы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr "Бұл өріс бос болмауы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "Бұл %(field_label)s бар %(model_name)s бұрыннан бар."
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+"%(field_label)s %(date_field_label)s %(lookup_type)s үшін бірегей болуы "
+"керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr "Өріс түрі: %(field_type)s"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr "«%(value)s» мәні True немесе False болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "«%(value)s» мәні True, False немесе None болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr "Бульдік (True немесе False)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr "Жол (ең көбі %(max_length)s таңба)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr "Жол (шектеусіз)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr "Үтірмен бөлінген бүтін сандар"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"«%(value)s» мәні дұрыс емес күн форматы. YYYY-MM-DD форматында болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr "«%(value)s» мәні дұрыс форматта (YYYY-MM-DD), бірақ жарамсыз күн."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr "Күні (уақытысыз)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"«%(value)s» мәні дұрыс емес форматта. YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ] "
+"форматында болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+"«%(value)s» мәні дұрыс форматта (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]), бірақ "
+"жарамсыз күн/уақыт."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr "Күні (уақытымен)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr "«%(value)s» мәні ондық сан болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr "Ондық сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"«%(value)s» мәні дұрыс емес форматта. [DD] [[HH:]MM:]ss[.uuuuuu] форматында "
+"болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr "Ұзақтығы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr "Электрондық пошта"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr "Файл жолы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr "«%(value)s» мәні қалқымалы сан болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr "Қалқымалы сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr "«%(value)s» мәні бүтін сан болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr "Бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr "Үлкен (8 байт) бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr "Кіші бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "IPv4 address"
+msgstr "IPv4 мекенжайы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "IP address"
+msgstr "IP мекенжайы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "«%(value)s» мәні None, True немесе False болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr "Бульдік (True, False немесе None)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr "Оң үлкен бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr "Оң бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr "Оң кіші бүтін сан"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (ең көбі %(max_length)s таңба)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr "Мәтін"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"«%(value)s» мәні дұрыс емес форматта. HH:MM[:ss[.uuuuuu]] форматында болуы "
+"керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"«%(value)s» мәні дұрыс форматта (HH:MM[:ss[.uuuuuu]]), бірақ жарамсыз уақыт."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr "URL"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr "Бинарлық деректер"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr "«%(value)s» дұрыс UUID емес."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr "Әмбебап бірегей идентификатор"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr "Файл"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr "Сурет"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr "JSON объектісі"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr "Мән дұрыс JSON болуы керек."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:978
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr "%(field)s %(value)r мәні бар %(model)s дұрыс таңдау емес."
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:981
+msgid "Foreign Key (type determined by related field)"
+msgstr "Сыртқы кілт (түрі байланысты өріске байланысты)"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1275
+msgid "One-to-one relationship"
+msgstr "Бір-біріне қатынас"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1332
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr "%(from)s-%(to)s қатынасы"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1334
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr "%(from)s-%(to)s қатынастары"
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1382
+msgid "Many-to-many relationship"
+msgstr "Көптен-көпке қатынас"
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ":?.!"
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr "Бұл өріс міндетті."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr "Бүтін сан енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:486
+#: .\venv\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr "Дұрыс күн енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:509
+#: .\venv\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr "Дұрыс уақыт енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr "Дұрыс күн/уақыт енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr "Дұрыс ұзақтық енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "Күндер саны {min_days} және {max_days} арасында болуы керек."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr "Файл жіберілмеді. Форманың кодтау түрін тексеріңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr "Файл жіберілмеді."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr "Жіберілген файл бос."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] "Файл атауы %(max)d таңбадан аспауы керек (қазір %(length)d)."
+msgstr[1] "Файл атауы %(max)d таңбадан аспауы керек (қазір %(length)d)."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr "Файл жіберіңіз немесе тазалау құсбелгісін қойыңыз, екеуін бірдей емес."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr "Дұрыс сурет жүктеңіз. Жүктелген файл сурет емес немесе бүлінген."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:889
+#: .\venv\Lib\site-packages\django\forms\fields.py:975
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr "Дұрыс таңдау таңдаңыз. %(value)s қолжетімді таңдаулардың бірі емес."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:977
+#: .\venv\Lib\site-packages\django\forms\fields.py:1096
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr "Мәндер тізімін енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr "Толық мән енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr "Дұрыс UUID енгізіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr "Дұрыс JSON енгізіңіз."
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ":"
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(Жасырын өріс %(name)s) %(error)s"
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+"ManagementForm деректері жоқ немесе өзгертілген. Жоқ өрістер: "
+"%(field_names)s. Мәселе шешілмесе, қате туралы хабарлаңыз."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] "Ең көбі %(num)d форма жіберіңіз."
+msgstr[1] "Ең көбі %(num)d форма жіберіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] "Кемінде %(num)d форма жіберіңіз."
+msgstr[1] "Кемінде %(num)d форма жіберіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr "Рет"
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "%(field)s үшін қайталанатын деректерді түзетіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+"%(field)s үшін қайталанатын деректерді түзетіңіз, ол бірегей болуы керек."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+"%(date_field)s ішіндегі %(lookup)s үшін %(field_name)s қайталанатын "
+"деректерді түзетіңіз, ол бірегей болуы керек."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr "Төмендегі қайталанатын мәндерді түзетіңіз."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr "Ішкі мән ата-анасымен сәйкес келмейді."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr "Дұрыс таңдау таңдаңыз. Бұл таңдау қолжетімді таңдаулардың бірі емес."
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr "«%(pk)s» дұрыс мән емес."
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+"%(datetime)s %(current_timezone)s уақыт белдеуінде түсіндірілмеді; ол "
+"екіұшты немесе жоқ болуы мүмкін."
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr "Тазалау"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr "Қазіргі"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr "Өзгерту"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr "Белгісіз"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr "Иә"
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr "Жоқ"
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr "иә,жоқ,мүмкін"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(size)d байт"
+msgstr[1] "%(size)d байт"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr "%s КБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr "%s МБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr "%s ГБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr "%s ТБ"
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr "%s ПБ"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr "түстен кейін"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr "таңертең"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr "PM"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr "AM"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr "түн ортасы"
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr "түскі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr "Дүйсенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr "Сейсенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr "Сәрсенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr "Бейсенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr "Жұма"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr "Сенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr "Жексенбі"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr "Дс"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr "Сс"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr "Ср"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr "Бс"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr "Жм"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+#| msgid "Status"
+msgid "Sat"
+msgstr "Сб"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr "Жк"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr "Қаңтар"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr "Ақпан"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr "Наурыз"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr "Сәуір"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr "Мамыр"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr "Маусым"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr "Шілде"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr "Тамыз"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr "Қыркүйек"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr "Қазан"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr "Қараша"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr "Желтоқсан"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr "қаң"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr "ақп"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr "нау"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr "сәу"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr "мам"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr "мау"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr "шіл"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr "там"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr "қыр"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr "қаз"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr "қар"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr "жел"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr "Қаң."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr "Ақп."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Наур."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "Сәу."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Мам."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "Маус."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "Шіл."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "Там."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "Қыр."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "Қаз."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr "Қар."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "Жел."
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr "Қаңтар"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr "Ақпан"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr "Наурыз"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr "Сәуір"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr "Мамыр"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr "Маусым"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr "Шілде"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr "Тамыз"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr "Қыркүйек"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr "Қазан"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr "Қараша"
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr "Желтоқсан"
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr "Бұл дұрыс IPv6 мекенжайы емес."
+
+#: .\venv\Lib\site-packages\django\utils\text.py:67
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr "%(truncated_text)s…"
+
+#: .\venv\Lib\site-packages\django\utils\text.py:278
+msgid "or"
+msgstr "немесе"
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:297
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ", "
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] "%(num)d жыл"
+msgstr[1] "%(num)d жыл"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] "%(num)d ай"
+msgstr[1] "%(num)d ай"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] "%(num)d апта"
+msgstr[1] "%(num)d апта"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] "%(num)d күн"
+msgstr[1] "%(num)d күн"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] "%(num)d сағат"
+msgstr[1] "%(num)d сағат"
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] "%(num)d минут"
+msgstr[1] "%(num)d минут"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr "Тыйым салынған"
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr "CSRF тексеруі сәтсіз аяқталды. Сұраныс тоқтатылды."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"Бұл хабарламаны көріп отырсыз, себебі бұл HTTPS сайтқа браузеріңізден "
+"«Referer header» жіберілуі керек, бірақ ол жіберілмеді. Бұл қауіпсіздік үшін "
+"қажет, браузеріңізді үшінші тараптар басып алмауы үшін."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+"Егер браузеріңізде «Referer» тақырыптарын өшірсеңіз, оларды қайта қосыңыз, "
+"кем дегенде осы сайт үшін немесе HTTPS қосылымдары үшін, немесе «same-"
+"origin» сұраныстары үшін."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+"Егер <meta name=\"referrer\" content=\"no-referrer\"> тегін немесе «Referrer-"
+"Policy: no-referrer» тақырыбын қолдансаңыз, оларды алып тастаңыз. CSRF "
+"қорғанысы қатаң referer тексеру үшін «Referer» тақырыбын талап етеді. "
+"Құпиялылыққа алаңдасаңыз, үшінші тарап сайттарына сілтемелер үшін <a "
+"rel=\"noreferrer\" …> сияқты баламаларды қолданыңыз."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"Бұл хабарламаны көріп отырсыз, себебі бұл сайтқа форма жібергенде CSRF "
+"cookie қажет. Бұл cookie қауіпсіздік үшін қажет, браузеріңізді үшінші "
+"тараптар басып алмауы үшін."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+"Егер браузеріңізде cookie-лерді өшірсеңіз, оларды қайта қосыңыз, кем дегенде "
+"осы сайт үшін немесе «same-origin» сұраныстары үшін."
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr "Толығырақ ақпаратты DEBUG=True арқылы көруге болады."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr "Жыл көрсетілмеген"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr "Күн диапазоннан тыс"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr "Ай көрсетілмеген"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr "Күн көрсетілмеген"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr "Апта көрсетілмеген"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:353
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr "%(verbose_name_plural)s жоқ"
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+"Келешектегі %(verbose_name_plural)s қолжетімсіз, себебі "
+"%(class_name)s.allow_future False."
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr "«%(datestr)s» күн жолы дұрыс емес, формат «%(format)s»"
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "Сұранысқа сәйкес %(verbose_name)s табылмады"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Бет «last» емес және бүтін санға түрлендірілмейді."
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr "Дұрыс емес бет (%(page_number)s): %(message)s"
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr "Тізім бос және «%(class_name)s.allow_empty» False."
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr "Мұнда каталог индекстеріне рұқсат етілмейді."
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "«%(path)s» жоқ"
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr "%(directory)s индексі"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr "Орнату сәтті аяқталды! Құттықтаймыз!"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+"Django %(version)s үшін <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/releases/\" target=\"_blank\" rel=\"noopener\">шығарылым "
+"жазбаларын</a> қараңыз"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+"Бұл бетті көріп отырсыз, себебі <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> параметрі қосылған және ешқандай URL "
+"бапталмаған."
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr "Django құжаттамасы"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr "Тақырыптар, анықтамалар және нұсқаулықтар"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr "Оқу құралы: Сауалнама қолданбасы"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr "Django-мен бастау"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr "Django қауымдастығы"
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr "Байланысыңыз, көмек алыңыз немесе үлес қосыңыз"

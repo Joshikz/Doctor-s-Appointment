@@ -1,14 +1,29 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Add Doctor{% endblock %}
+{% block title %}{% trans "Add Doctor" %}{% endblock %}
 
 {% block content %}
-<h2>Add New Doctor</h2>
+<h2>{% trans "Add New Doctor" %}</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
-    <a href="{% url 'doctor_list' %}">Cancel</a>
+
+    {% if form.errors %}
+        <ul class="form-errors">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <button type="submit">{% trans "Save" %}</button>
+    <a href="{% url 'doctor_list' %}">{% trans "Cancel" %}</a>
 </form>
 {% endblock %}

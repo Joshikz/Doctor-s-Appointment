@@ -1,14 +1,19 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Add Patient{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/patient_create.css' %}">
+{% endblock %}  
+
+{% block title %}{% trans "Add Patient" %}{% endblock %}
 
 {% block content %}
-<h2>Add New Patient</h2>
+<h2>{% trans "Add New Patient" %}</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
-    <a href="{% url 'patient_list' %}">Cancel</a>
+    <button type="submit">{% trans "Save" %}</button>
+    <a href="{% url 'patient_list' %}">{% trans "Cancel" %}</a>
 </form>
 {% endblock %}

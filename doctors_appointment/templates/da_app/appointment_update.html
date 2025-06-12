@@ -1,15 +1,15 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Edit Appointment{% endblock %}
+{% block title %}{% trans "Edit Appointment" %}{% endblock %}
 
 {% block content %}
-<h2>Edit Appointment</h2>
+<h2>{% trans "Edit Appointment" %}</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
-    {# Исправляем ссылку, чтобы она вела обратно на страницу этой записи #}
-    <a href="{% url 'appointment_detail' a_id=form.instance.pk %}">Cancel</a>
+    <button type="submit">{% trans "Save" %}</button>
+    <a href="{% url 'appointment_detail' a_id=form.instance.pk %}">{% trans "Cancel" %}</a>
 </form>
 {% endblock %}

@@ -1,14 +1,22 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Add Appointment{% endblock %}
+{% block title %}{% trans "Add Appointment" %}{% endblock %}
 
 {% block content %}
-<h2>Add New Appointment</h2>
+    <h2>{% trans "Add New Appointment" %}</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
-    <a href="{% url 'appointment_list' %}">Cancel</a>
+    {% if form.non_field_errors %}
+        <ul class="form-errors">
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <button type="submit">{% trans "Save" %}</button>
+    <a href="{% url 'appointment_list' %}">{% trans "Cancel" %}</a>
 </form>
 {% endblock %}

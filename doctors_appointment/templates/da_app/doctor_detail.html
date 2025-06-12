@@ -1,25 +1,28 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Doctor Details{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/doctor_detail.css' %}">
+{% endblock %}
+
+{% block title %}{% trans "Doctor Details" %}{% endblock %}
 
 {% block content %}
 
 {% if doctor.image %}
-    <img src="{{ doctor.image.url }}" alt="Doctor Image" style="max-width: 200px;">
+    <img src="{{ doctor.image.url }}" alt="{% trans 'Doctor Image' %}" style="max-width: 200px;">
 {% endif %}
 
-    {# Используем данные из связанной модели User #}
-    <h2>Doctor: {{ doctor.user.get_full_name }}</h2>
-    <p>Specialty: {{ doctor.specialty }}</p>
-    <p>Phone: {{ doctor.phone }}</p>
-    <p>Email: {{ doctor.user.email }}</p>
+    <h2>{% trans "Doctor" %}: {{ doctor.user.get_full_name }}</h2>
+    <p>{% trans "Specialty" %}: {{ doctor.specialty }}</p>
+    <p>{% trans "Phone" %}: {{ doctor.phone }}</p>
+    <p>{% trans "Email" %}: {{ doctor.user.email }}</p>
 
-    <button onclick="history.back()">← Back</button>
+    <button onclick="history.back()">← {% trans "Back" %}</button>
 
-    {# Кнопки для управления видны ТОЛЬКО администратору #}
     {% if user.is_superuser %}
-        <a href="{% url 'doctor_delete' d_id=doctor.pk %}">Delete</a>
-        <a href="{% url 'doctor_update' d_id=doctor.pk %}" class="btn-edit">Edit</a>
+        <a href="{% url 'doctor_delete' d_id=doctor.pk %}">{% trans "Delete" %}</a>
+        <a href="{% url 'doctor_update' d_id=doctor.pk %}" class="btn-edit">{% trans "Edit" %}</a>
     {% endif %}
 
 {% endblock %}

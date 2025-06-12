@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Delete Doctor" %}{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/doctor_delete.css' %}">
+{% endblock %}
 
 {% block content %}
-  {# Используем имя из связанной модели User #}
-  <h2>Delete Doctor "{{ doctor.user.get_full_name }}"?</h2>
+  <h2>{% trans "Delete Doctor" %} "{{ doctor.user.get_full_name }}"?</h2>
   <form method="post">
     {% csrf_token %}
-    <button type="submit">Confirm</button>
-    <a href="{% url 'doctor_list' %}">Cancel</a>
+    <button type="submit">{% trans "Confirm" %}</button>
+    <a href="{% url 'doctor_list' %}">{% trans "Cancel" %}</a>
   </form>
 {% endblock %}

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% load static i18n %}
+{% load i18n %}
 {% load auth_extras %}
+{% load static %}
 
-{% block title %}Appointment {% endblock %}
+{% block title %}{% trans "Appointment" %}{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'da_app/appointment_list.css' %}">
@@ -12,12 +13,12 @@
 
 <h2>{% trans "Appointments" %}</h2>
     {% for appointment in appointments %}
-    <a href="{% url 'appointment_detail' a_id=appointment.pk %}">
+    <a href="{% url 'appointment_detail' appointment.pk %}">
         <div class="appointment_list">
-            <h3>Doctor: {{ appointment.doctor.user.get_full_name }}</h3>
-            <h3>Patient: {{ appointment.patient.user.get_full_name }}</h3>
-            <p>Date: {{ appointment.date }}, {{ appointment.time }}</p>        
-            <p>Status: {{ appointment.status }}</p>
+            <h3>{% trans "Doctor" %}: {{ appointment.doctor.user.get_full_name }}</h3>
+            <h3>{% trans "Patient" %}: {{ appointment.patient.user.get_full_name }}</h3>
+            <p>{% trans "Date" %}: {{ appointment.date }}, {{ appointment.time }}</p>        
+            <p>{% trans "Status" %}: {{ appointment.status }}</p>
         </div>
     </a>
     {% empty %}
@@ -26,7 +27,7 @@
 
     {% if user|has_group:"Patients" or user.is_superuser %}
         <div class="add_appointment">
-            <a href="{% url 'appointment_create' %}">Add Appointment</a>
+            <a href="{% url 'appointment_create' %}">{% trans "Add Appointment" %}</a>
         </div>
     {% endif %}
 {% endblock %}

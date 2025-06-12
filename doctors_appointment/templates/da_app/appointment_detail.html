@@ -1,31 +1,25 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Appointment Details{% endblock %}
+{% block title %}{% trans "Appointment Details" %}{% endblock %}
 
 {% block content %}
-    {# Используем __str__ модели, который мы настраивали #}
-    <h2>Appointment: {{ appointment }}</h2>
+    <h2>{% blocktrans %}Appointment: {{ appointment }}{% endblocktrans %}</h2>
     
-    {# Получаем имена из связанных моделей User #}
-    <h3>Doctor: {{ appointment.doctor.user.get_full_name }}</h3>
-    <h3>Patient: {{ appointment.patient.user.get_full_name }}</h3>
-    
-    {# Поле author мы удалили из модели, оно больше не нужно #}
-    
-    <p>Date: {{ appointment.date }}</p>
-    <p>Time: {{ appointment.time }}</p>
-    <p>Reason: {{ appointment.reason }}</p>
-    <p>Status: {{ appointment.status }}</p>
+    <h3>{% trans "Doctor" %}: {{ appointment.doctor.user.get_full_name }}</h3>
+    <h3>{% trans "Patient" %}: {{ appointment.patient.user.get_full_name }}</h3>
+    <p>{% trans "Date" %}: {{ appointment.date }}</p>
+    <p>{% trans "Time" %}: {{ appointment.time }}</p>
+    <p>{% trans "Reason" %}: {{ appointment.reason }}</p>
+    <p>{% trans "Status" %}: {{ appointment.status }}</p>
 
-    <button onclick="history.back()">← Back</button>
+    <button onclick="history.back()">← {% trans "Back" %}</button>
 
-    {# Кнопка "Edit" видна пациенту, врачу и админу #}
     {% if user == appointment.patient.user or user == appointment.doctor.user or user.is_superuser %}
-        <a href="{% url 'appointment_update' a_id=appointment.pk %}" class="btn-edit">Edit</a>
+        <a href="{% url 'appointment_update' a_id=appointment.pk %}" class="btn-edit">{% trans "Edit" %}</a>
     {% endif %}
 
-    {# Кнопка "Delete" видна пациенту и админу #}
     {% if user == appointment.patient.user or user.is_superuser %}
-        <a href="{% url 'appointment_delete' a_id=appointment.pk %}">Delete</a>
+        <a href="{% url 'appointment_delete' a_id=appointment.pk %}">{% trans "Delete" %}</a>
     {% endif %}
 {% endblock %}

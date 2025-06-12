@@ -1,27 +1,24 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'da_app/patient_list.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Patients List</h2>
+<h2>{% trans "Patients List" %}</h2>
     {% for patient in patients %}
         <div class="patient_list">
-            {# Ссылка на детальную страницу пациента #}
             <a href="{% url 'pat-details-page' p_id=patient.pk %}">
-                {# Используем полное имя из связанной модели User #}
                 <h3>{{ patient.user.get_full_name }}</h3>
-                <p>{{ patient.birth_date }}</p>
+                <p>{% trans "Birth date" %}: {{ patient.birth_date }}</p>
             </a>
         </div>
     {% endfor %}
 
-    {# Кнопка "Добавить пациента" видна ТОЛЬКО администратору #}
     {% if user.is_superuser %}
         <div class="add_patient">
-            <a href="{% url 'patient_create' %}">Add Patient</a>
+            <a href="{% url 'patient_create' %}">{% trans "Add Patient" %}</a>
         </div>
     {% endif %}
     

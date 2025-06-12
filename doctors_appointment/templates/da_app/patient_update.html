@@ -1,15 +1,15 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Edit Patient{% endblock %}
+{% block title %}{% trans "Edit Patient" %}{% endblock %}
 
 {% block content %}
-<h2>Edit Patient</h2>
+<h2>{% trans "Edit Patient" %}</h2>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Save</button>
-    {# Исправляем ссылку, чтобы она вела обратно на страницу этого пациента #}
-    <a href="{% url 'pat-details-page' p_id=form.instance.pk %}">Cancel</a>
+    <button type="submit">{% trans "Save" %}</button>
+    <a href="{% url 'pat-details-page' p_id=form.instance.pk %}">{% trans "Cancel" %}</a>
 </form>
 {% endblock %}
