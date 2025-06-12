@@ -16,11 +16,10 @@
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ request.get_full_path }}">
         
-        
-
-        {% for  language in LANGUAGES %}
+  
+        {% for lang_code, lang_name in LANGUAGES %}
             <button type="submit" name="language" value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}disabled style="cursor: auto;"{% endif %}>
-                {% if  == 'ru' %} RU
+                {% if lang_code == 'ru' %} RU
                 {% elif lang_code == 'en' %} EN
                 {% elif lang_code == 'kk' %} KZ
                 {% endif %}
@@ -31,7 +30,6 @@
         {% if user.is_authenticated %}
           <p>{{ user.first_name }} {{ user.last_name }}</p>
 
-          {# --- ДОБАВЛЕНО: Ссылка на свой профиль для пациента --- #}
           {% if user|has_group:"Пациенты" %}
             <a href="{% url 'pat-details-page' p_id=user.pk %}"><button>{% trans "My profile" %}</button></a>
           {% endif %}
@@ -46,8 +44,7 @@
       <nav style="font-size: 18px; margin-bottom: 20px;">
         <a href="{% url 'doctor_list' %}">{% trans "Doctors" %}</a> |
         
-        {# --- ИЗМЕНЕНО: Ссылка "Patients" теперь в условии --- #}
-        {% if user.is_superuser or user|has_group:"Врачи" %}
+        {% if user.is_superuser or user|has_group:"Doctors" %}
             <a href="{% url 'patient_list' %}">{% trans "Patients" %}</a> |
         {% endif %}
 

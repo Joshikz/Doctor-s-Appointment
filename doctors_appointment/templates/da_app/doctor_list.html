@@ -9,19 +9,15 @@
 <h2>{% trans "Doctors List" %}</h2>
         {% for doctor in doctors %}
             <div class="doctor_list">
-                {# Ссылка на детальную страницу доктора. doctor.pk теперь равен user.pk #}
                 <a href="{% url 'doc-details-page' d_id=doctor.pk %}">
                     {% if doctor.image %}
                     <img src="{{ doctor.image.url }}" alt="Doctor Image">
-                    {% endif %}
-                    {# Используем полное имя из связанной модели User #}
                     <h3>{{ doctor.user.get_full_name }}</h3>
                     <p>{{ doctor.specialty }}</p>
                 </a>
             </div>
         {% endfor %}
         
-        {# Кнопка "Добавить врача" видна ТОЛЬКО администратору #}
         {% if user.is_superuser %}
         <div class="add_doctor">
             <a href="{% url 'doctor_create' %}">{% trans "Add doctor" %}</a>
