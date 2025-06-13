@@ -26,8 +26,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+# DEBUG = True
 
-ALLOWED_HOSTS = [False]
+ALLOWED_HOSTS = []
+
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -88,7 +90,7 @@ WSGI_APPLICATION = "doctors_appointment.wsgi.application"
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://postgres:3123@localhost:5432/Doctors_appointment',
+        default='postgres://postgres:3123@localhost:5432/Doctors appointment',
         conn_max_age=600)
 }
 
